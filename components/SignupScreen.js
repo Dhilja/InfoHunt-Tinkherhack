@@ -13,8 +13,10 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
+
  
-const sigin = () => {
+export default function Signup({ navigation }){
+
   const [name,setName] =useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,10 +27,18 @@ const sigin = () => {
      
       <StatusBar style="auto" />
       <View style={styles.logo}>
-        <Image source={ require("./assets/IH.png")} style={{width:150,height:150}}></Image>
+        <Image source={ require("./IH.png")} style={{width:150,height:150}}></Image>
         </View>
-      
       <View style={styles.input1}>
+      <View style={styles.inputView}>
+
+      <TextInput
+          style={styles.TextInput}
+          placeholder="Name"
+          placeholderTextColor="#003f5c"
+          onChangeText={(name) => setEmail(setName)}
+        />
+        </View>
        
       <View style={styles.inputView}>
         <TextInput
@@ -52,20 +62,16 @@ const sigin = () => {
       
 
       </View>
-
-      
-
-      <View style={styles.signup}>
-        <Text style={styles.dont}> Don't have an account?</Text>
-        <TouchableOpacity style={styles.sign}>
-        <Text style={styles.sign} onpress={()=>navigation.navigate("lgin")} >signup</Text>
-      </TouchableOpacity>
+      <View style={styles.login}>
+ 
+ <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigate("Home")}>
+   <Text style={styles.loginText}  >REGISTER</Text>
+ </TouchableOpacity>
+ </View >
 
       </View>
- 
-    
-    </View>
-  );
+     
+ );
 }
  
 const styles = StyleSheet.create({
@@ -78,7 +84,7 @@ const styles = StyleSheet.create({
 
   logo:{
 
-    marginTop:0,
+    marginTop:100,
    
 
   },
@@ -89,8 +95,7 @@ const styles = StyleSheet.create({
     width:"100%",
     alignItems: "center",
     justifyContent: "center",
-
-    marginTop:0,
+    marginTop:100,
     
 
 
@@ -101,8 +106,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#E5E4E2",
     borderRadius: 30,
     width:"75%",
-    height: 90,
-    marginTop:0,
+    height: 45,
+    marginTop:20,
 
   },
  
@@ -130,7 +135,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#808080",
-    marginTop:0,
+    marginTop:100,
   
   },
   
@@ -138,9 +143,5 @@ const styles = StyleSheet.create({
  
 
   
- 
-
-  
 });
 
-export default sigin

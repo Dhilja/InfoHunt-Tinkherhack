@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { images } from 'react-native';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -12,7 +13,7 @@ import {
   TouchableOpacity,
 } from "react-native";
  
-const final=() =>{
+export default function Final() {
   const [msg, setMsg] = useState("");
   
  
@@ -22,7 +23,7 @@ const final=() =>{
      
       <StatusBar style="auto" />
       <View style={styles.logo}>
-        <Image source={ require("./assets/IH.png")} style={{width:150,height:150}}></Image>
+        <Image source={ require("./IH.png")} style={{width:150,height:150}}></Image>
         </View>
      
       <View style={styles.input1}>
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "C4A494",
-    alignItems: "center",
+   
     justifyContent: "center",
   },
 
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     paddingTop:0,
     height:110,
     width:"100%",
-    alignItems: "center",
+    
     justifyContent: "center",
     marginTop:350,
     
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
       height: 45,
       marginTop:20,
       paddingLeft:20,
-      justifyContent: "center",
+      
     
    
     

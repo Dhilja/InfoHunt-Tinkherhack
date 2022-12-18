@@ -1,25 +1,22 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-import LoginScreen from './screen/login';
-import SigninScreen from './screen/signin';
-import FinalScreen from './screen/final';
-
+import * as React from "react";
+import { View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LoginScreen from "./components/LoginScreen";
+import WelcomeScreen from "./components/WelcomeScreen";
+import SignupScreen from "./components/SignupScreen";
 const Stack = createNativeStackNavigator();
 
-const MyStack = () => {
+export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="lgin"
-          component={HomeScreen}
-          
-        />
-        <Stack.Screen name="sigin"  component={SigninScreen}/>
-        <Stack.Screen name="final" component={FinalScreen}/>
+        <Stack.Screen name="Home" component={LoginScreen} />
+        <Stack.Screen name="Inter" component={SignupScreen} />
+        <Stack.Screen name="About" component={WelcomeScreen}/>
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
+

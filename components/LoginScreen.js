@@ -1,7 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { images } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { images ,TouchableOpacity,} from 'react-native';
 
 import React, { useState } from "react";
 import {
@@ -11,11 +9,14 @@ import {
   Image,
   TextInput,
   Button,
-  TouchableOpacity,
-} from "react-native";
+  
+} 
+
+from "react-native";
  
-const sigin = () => {
-  const [name,setName] =useState("");
+export default function Home({ navigation }){
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
@@ -25,7 +26,7 @@ const sigin = () => {
      
       <StatusBar style="auto" />
       <View style={styles.logo}>
-        <Image source={ require("./assets/IH.png")} style={{width:150,height:150}}></Image>
+        <Image source={ require("./IH.png")} style={{width:150,height:150}}></Image>
         </View>
       
       <View style={styles.input1}>
@@ -51,16 +52,24 @@ const sigin = () => {
       </View>
       
 
-      </View>
+    </View>
 
-      
+    <View style={styles.login}>
+ 
+ <TouchableOpacity style={styles.loginBtn} onPress={()=>navigation.navigate("About")}>
+   <Text style={styles.loginText}  >LOGIN</Text>
+ </TouchableOpacity>
+ </View >
+ 
+ 
+  
+
 
       <View style={styles.signup}>
         <Text style={styles.dont}> Don't have an account?</Text>
-        <TouchableOpacity style={styles.sign}>
-        <Text style={styles.sign} onpress={()=>navigation.navigate("lgin")} >signup</Text>
+        <TouchableOpacity style={styles.sign} onPress={() => navigation.navigate("Inter")}>
+        <Text style={styles.sign}  >signup</Text>
       </TouchableOpacity>
-
       </View>
  
     
@@ -78,7 +87,8 @@ const styles = StyleSheet.create({
 
   logo:{
 
-    marginTop:0,
+    marginTop:100,
+    justifyContent: "center",
    
 
   },
@@ -89,8 +99,7 @@ const styles = StyleSheet.create({
     width:"100%",
     alignItems: "center",
     justifyContent: "center",
-
-    marginTop:0,
+    marginTop:150,
     
 
 
@@ -101,8 +110,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#E5E4E2",
     borderRadius: 30,
     width:"75%",
-    height: 90,
-    marginTop:0,
+    height: 45,
+    marginTop:20,
 
   },
  
@@ -130,17 +139,33 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#808080",
-    marginTop:0,
+    marginTop:50,
   
   },
   
 
- 
+  signup:{
+    marginTop:50,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    
+  },
 
-  
- 
+  sign:{
+
+    fontWeight:'bold',
+    fontSize:14,
+    color:'blue',
+
+ },
+
+ dont:
+ {
+  fontWeight:'bold',
+  fontSize:14,
+
+ }
 
   
 });
 
-export default sigin

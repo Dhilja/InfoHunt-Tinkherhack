@@ -10,9 +10,13 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
-} from "react-native";
+} 
+
+from "react-native";
  
-const Lgin =() =>{
+export default function Login({ navigation }){
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
@@ -22,7 +26,7 @@ const Lgin =() =>{
      
       <StatusBar style="auto" />
       <View style={styles.logo}>
-        <Image source={ require("./assets/IH.png")} style={{width:150,height:150}}></Image>
+        <Image source={ require("./IH.png")} style={{width:150,height:150}}></Image>
         </View>
       
       <View style={styles.input1}>
@@ -52,14 +56,14 @@ const Lgin =() =>{
 
       <View style={styles.login}>
  
- <TouchableOpacity style={styles.loginBtn}>
-   <Text style={styles.loginText}>LOGIN</Text>
+ <TouchableOpacity style={styles.loginBtn} onpress={()=>Navigation.navigation("final")}>
+   <Text style={styles.loginText}  >LOGIN</Text>
  </TouchableOpacity>
  </View >
 
       <View style={styles.signup}>
         <Text style={styles.dont}> Don't have an account?</Text>
-        <TouchableOpacity style={styles.sign}>
+        <TouchableOpacity style={styles.sign} onpress={()=>Navigation.navigate("final")}>
         <Text style={styles.sign} >signup</Text>
       </TouchableOpacity>
 
@@ -74,7 +78,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "C4A494",
-    alignItems: "center",
+    
     justifyContent: "center",
   },
 
